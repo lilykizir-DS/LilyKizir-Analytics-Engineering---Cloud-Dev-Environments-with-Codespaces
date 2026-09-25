@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+
+	// VScode Dev Container Wizard generated
+	"name": "Python 3",
+	"image": "mcr.microsoft.com/devcontainers/python:3-3.12-bookworm",
+	
+	"customizations": {
+		"vscode": {
+			// added via extension settings
+			"extensions": [
+				"ms-python.python",
+				"redhat.vscode-yaml",
+				"snowflake.snowflake-vsc",
+				"innoverio.vscode-dbt-power-user"
+			]
+		}
+	},
+
+	// CUSTOM INJECTION
+
+	"remoteEnv": {
+        "DBT_PROFILES_DIR": "${containerWorkspaceFolder}/.dbt"
+    },
+
+	"updateContentCommand": "pip install --upgrade pip && pip install dbt-snowflake python-dotenv requests snowflake-connector-python cryptography"
+}
